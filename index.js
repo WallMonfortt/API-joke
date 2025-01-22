@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
             res.render('index.ejs', {
                 category: JSON.stringify(response.data.category),
                 joke: response.data.joke,
-                flags: JSON.stringify(response.data.flags)
+                flags: getKeysWithTrueValues(response.data.flags)
             } )
         }
     ).catch( function error(e) {
@@ -29,6 +29,18 @@ app.get('/', (req, res) => {
         })
     })
 })
+
+function getKeysWithTrueValues(obj) {
+    console.log(obj)
+    let keys = [];
+    
+    for (const key in obj) {
+      if (obj.hasOwnProperty(key) && obj[key] === true) {
+        keys.push(key);
+      }
+    }
+    return (keys.length > 0) ? keys : null ;
+  }
 
 
 

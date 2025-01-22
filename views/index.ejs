@@ -14,18 +14,21 @@
 <body>
   <h1>Your Joke</h1>
 
-  <div class="card">
-    <p>
-        <%= joke  %>
-    </p>
+  <div class="container">
+    <div class="card">
+      <p class="joke">
+          <%= joke  %>
+      </p>
+    </div>
+  
+    <button role="button" onclick="location.href='/'">New Joke</button>
   </div>
 
-    <label for="">
-        <!-- TODO: Handle the flags to show each one -->
-        <%= flags %>
-
-    </label>
-
+    <!-- TODO: Handle the flags to show each one -->
+      <% if (locals.flags) { %>
+      <p style="background: #f7f5f5; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: 200 ; padding: 15px; border-left:8px solid #ff0080; border-top-left-radius:8px; border-radius:8px;"><%= flags %></p>
+      <% } %>
+        
 </body>
 
 </html>
